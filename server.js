@@ -10,12 +10,6 @@ app.get('/', (req, res) => {
     res.send('<h1>Hello</h1>');
 });
 
-app.listen(3000, () => {
-    console.log('sure')
-});
-
-// 1. Be Polite, Greet the User
-
 app.get('/greet/:Bri', (req, res) => {
     res.send('Greetings, Bri!');
 });
@@ -54,12 +48,7 @@ app.get('/collectibles/:index', (req, res) => {
     res.send(`So you want the ${item.name}? The prices is ${item.price}`);
     });
 
-
-// app.listen(3000, () => {
-//     console.log('hey there');
-// });
-
-// 4. Filter Shoes by QP
+//4. Filter Shoes by QP
 
 const shoes = [
     { name: "Birkenstocks", price: 50, type: "sandal" },
@@ -72,7 +61,7 @@ const shoes = [
 ];
 
 app.get('/shoes', (req, res) => {
-    let { 'min-price': minPrice, 'max-price':maxPrice, type } = rep.query;
+    let { 'min-price': minPrice, 'max-price':maxPrice, type } = req.query;
 
     minPrice = minPrice ? parseFloat(minPrice) : null;
     maxPrice = maxPrice ? parseFloat(maxPrice) : null;
@@ -88,5 +77,5 @@ app.get('/shoes', (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log(hello);
+    console.log("hello");
 });
